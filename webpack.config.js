@@ -39,7 +39,7 @@ module.exports = {
       },
       {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/, // to import images and fonts
-        loader: "url-loader",
+        loader: "file-loader",
         options: { limit: false },
       },
     ],

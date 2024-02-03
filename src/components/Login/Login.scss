@@ -1,0 +1,31 @@
+.LoginBox {
+  width: 50vw;
+  position: fixed;
+  left: 25vw;
+}
+.LoginParent {
+  display: flex;
+  justify-content: space-between;
+}
+.LoginForm {
+  width: 100%;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.LoginOptionWrapper {
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid white;
+  border-radius: 20px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.LoginOptions {
+  display: flex;
+  gap: 20px;
+}
+svg {
+  height: 20px;
+  width: 20px;
+}
