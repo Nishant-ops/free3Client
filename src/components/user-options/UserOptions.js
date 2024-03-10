@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import UserContext from "../../UserContext";
 import { useNavigate } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
+import useContractHook from "../../Hooks/useContractHook";
 
 function logout() {
   Cookies.remove("token");
@@ -23,6 +24,7 @@ function UserOptions() {
   const isFreelancer = Cookies.get("isFreelancer") === "true";
 
   const userData = useContext(UserContext);
+  const { connectToWeb3 } = useContractHook();
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -40,7 +42,9 @@ function UserOptions() {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, []);
-
+  const handleConnectToWeb3 = () => {
+    connectToWeb3();
+  };
   const handleOptionClick = () => {
     setShow(false);
   };
@@ -124,9 +128,13 @@ function UserOptions() {
               sx={{ pointerEvents: userData.isWeb3Connected ? "none" : "auto" }}
             >
               {userData.isWeb3Connected ? (
-                <Typography>{`Connected to ${userData.walletAddress}`}</Typography>
+                <>
+                  <Typography>{`Connected to ${userData.walletAddress}`}</Typography>
+                </>
               ) : (
-                <Typography>{"Connect to Web3"}</Typography>
+                <>
+                  <Typography>{"Connect to Web3"}</Typography>
+                </>
               )}
             </Box>
             <div

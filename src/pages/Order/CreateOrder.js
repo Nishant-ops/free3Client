@@ -28,6 +28,7 @@ const GET_SERVICE = gql`
         _id
         username
         profile_picture
+        wallet_address
       }
     }
   }
@@ -98,7 +99,8 @@ function CreateOrder(props) {
           price: values.order_price,
           deadline: values.order_deadline,
           freelancerId: serviceData.service.freelancer._id,
-          freelancerWalletAddress: serviceData.service.freelancer.walletAddress,
+          freelancerWalletAddress:
+            serviceData.service.freelancer.wallet_address,
           clientId: userId,
           clientWalletAddress: walletAddress,
         },

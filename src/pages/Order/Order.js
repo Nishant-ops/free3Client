@@ -31,13 +31,11 @@ const GET_ORDER = gql`
         _id
         username
         profile_picture
-        walletAddress
       }
       freelancer {
         _id
         username
         profile_picture
-        walletAddress
       }
       status
       date
@@ -349,7 +347,6 @@ function Order() {
   const [messages, setMessages] = useState([]);
 
   const [message, setMessage] = useState("");
-  const [Contract, SetContract] = useState({});
   const { contract, connectToWeb3 } = useContractHook();
 
   const handleMessageChange = (event) => {
