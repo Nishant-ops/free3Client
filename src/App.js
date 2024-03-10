@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cookies from "js-cookie";
 import "font-awesome/css/font-awesome.min.css";
@@ -21,6 +21,7 @@ import Login from "./pages/Login/Login";
 import Order from "./pages/Order/Order";
 import Home from "./pages/Home/Home";
 import { useState } from "react";
+import { checkForConnection } from "./utils/FormatUtils";
 
 const GET_USER_BY_TOKEN = gql`
   query GetUserByToken($token: String!) {
@@ -38,8 +39,8 @@ function MainWrapper({ token }) {
     variables: { token: token },
   });
   const [isWeb3Connected, setIsWeb3Connected] = useState(false);
-  useEffect(() => {
-    setIsWeb3Connected(checkForWeb3());
+  const fetchData = useCallback(async () => {
+    setIsWeb3Connected(await checkForConnection());
   }, []);
 
   return (
@@ -51,7 +52,7 @@ function MainWrapper({ token }) {
             userId: data.getUserByToken._id,
             username: data.getUserByToken.username,
             profilePicture: data.getUserByToken.profile_picture,
-            walletAddress: data.wallet_address,
+
             isWeb3Connected: isWeb3Connected,
           }}
         >

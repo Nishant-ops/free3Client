@@ -8,6 +8,7 @@ import { useMutation, gql } from "@apollo/client";
 import MetaMask from "../../assets/images/MetaMask";
 
 const validate = (values) => {
+  console.log(values.role);
   const errors = {};
   if (!values.username) {
     errors.username = "Required";
@@ -90,7 +91,7 @@ function Signup() {
         values.email.trim().length === 0 ||
         values.password.trim().length === 0 ||
         values.username.trim().length === 0 ||
-        values.username.trim().length === 0
+        values.role.trim().length === 0
       ) {
         setEmptyFieldsError(true);
         console.log("empty fields");

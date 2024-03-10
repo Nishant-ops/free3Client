@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import { createUploadLink } from "apollo-upload-client";
+import createUploadLink from "apollo-upload-client/createUploadLink.mjs";
 import { GraphQLWsLink } from "@apollo/client/link/subscriptions";
 import { createClient } from "graphql-ws";
 import { split } from "@apollo/client";

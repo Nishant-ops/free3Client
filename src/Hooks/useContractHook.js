@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../UserContext";
+import { RelayProvider } from "@opengsn/provider";
+import { ethers } from "ethers";
 
 function useContractHook() {
   const [provider, setProvider] = useState({});
@@ -61,6 +63,7 @@ function useContractHook() {
   return {
     connectToWeb3,
     provider,
+    checkForEtherium,
   };
 }
 
