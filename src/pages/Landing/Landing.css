@@ -500,7 +500,7 @@
   align-items: center;
   width: 30%;
   text-align: center;
-  height: 250px;
+  /* height: 250px; */
   transform: scale(1);
   transition: transform 0.6s;
 }

@@ -12,7 +12,10 @@ function Header() {
     <div className="landing-page__wrapper">
       <header>
         <div>
-          <h3 className="main-navigation__logo">Free3</h3>
+          <Link to={"/"}>
+            {" "}
+            <h3 className="main-navigation__logo">Free3</h3>
+          </Link>
           <nav ref={navRef}>
             <a href="#freelancers">For Freelancers</a>
             <Link to="/about">Why Free3</Link>

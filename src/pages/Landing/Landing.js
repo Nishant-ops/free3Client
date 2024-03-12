@@ -3,7 +3,7 @@ import "./Landing.css";
 import { FaSearch } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { useRef } from "react";
-
+import { FaLinkedin } from "react-icons/fa";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import image1 from "../../assets/images/image1.png";
@@ -92,7 +92,6 @@ function Landing() {
           </a>
         </div>
       </section>
-
       <section class="info-last" id="clients">
         <div class="contenedor last-section">
           <div class="contenedor-textos-main">
@@ -140,6 +139,7 @@ function Landing() {
           <LazyLoadImage src={image2} alt="" />
         </div>
       </section>
+
       <section class="galery">
         <div class="contenedor">
           <h2 class="title">Categories</h2>
@@ -167,58 +167,24 @@ function Landing() {
           ></path>
         </svg>
       </div>
-      {/* <footer id="contact">
+      <footer id="contact">
         <div class="container-footer"></div>
         <h2 class="title">Contact us</h2>
         <div className="content-cards1">
           <article className="card1">
-            <div className="person-icon">
-              <LazyLoadImage
-                src={ismail}
-                alt="Ismail OUKHA"
-                className="person-image"
-              />
-            </div>
             <br></br>
-            <h3>Ismail OUKHA</h3>
+            <h1>Free3</h1>
             <p>
-              <a class="xx" href="https://github.com/itsmeismaill">
-                <FaGithub />
-              </a>
-              <span style={{ marginRight: "10px" }}></span>
               <a
                 class="xx"
-                href="https://www.linkedin.com/in/ismail-oukha-90a070227"
-              >
-                <FaLinkedin />
-              </a>
-            </p>
-          </article>
-          <article className="card1">
-            <div className="person-icon">
-              <LazyLoadImage
-                src={anas}
-                alt="Anas Lamaiz"
-                className="person-image"
-              />
-            </div>
-            <br></br>
-            <h3>Anas LAMAIZ</h3>
-            <p>
-              <a class="xx" href="https://github.com/Anass001">
-                <FaGithub />
-              </a>
-              <span style={{ marginRight: "10px" }}></span>
-              <a
-                class="xx"
-                href="https://www.linkedin.com/in/anas-lamaiz-b7a82213a"
+                href="https://www.linkedin.com/company/free3/?viewAsMember=true"
               >
                 <FaLinkedin />
               </a>
             </p>
           </article>
         </div>
-      </footer> */}
+      </footer>
     </body>
   );
 }

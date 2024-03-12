@@ -4,11 +4,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: linear-gradient(
-    121deg,
-    rgba(101, 116, 251, 0.486) 0%,
-    rgba(45, 182, 125, 0.575) 80%
-  );
 }
 
 .landing-page__wrapper {
@@ -39,6 +34,12 @@
   justify-content: space-between;
   height: 80px;
   padding: 0 2rem;
+
+  background: linear-gradient(
+    121deg,
+    rgba(101, 116, 251, 0.486) 0%,
+    rgba(45, 182, 125, 0.575) 80%
+  );
 
   color: var(--textColor);
 }
