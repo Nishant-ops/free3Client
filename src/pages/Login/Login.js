@@ -84,7 +84,7 @@ function Login() {
     <div className="auth-login__wrapper">
       <div className="navbar">
         <NavLink to="/" activeClassName="active-link">
-          <div className="navbar__logo">FreelancerConnect</div>
+          <div className="navbar__logo">Free3</div>
         </NavLink>
       </div>
       <div className="login__wrapper">

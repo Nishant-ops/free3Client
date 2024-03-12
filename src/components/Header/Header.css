@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
+
+.landing-page__wrapper {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: linear-gradient(
+    121deg,
+    rgba(101, 116, 251, 0.486) 0%,
+    rgba(45, 182, 125, 0.575) 80%
+  );
+}
+
+.landing-page__wrapper {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+:root {
+  --mainColor: #0000009a;
+  --mainColorLight: #5767aa;
+  --secondaryColor: #2db67c;
+  --textColor: #eee;
+}
+
+.landing-page__wrapper header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 2rem;
+
+  color: var(--textColor);
+}
+
+.landing-page__wrapper nav a {
+  margin: 0 1rem;
+  color: var(--textColor);
+  text-decoration: none;
+}
+
+.landing-page__wrapper nav a:hover {
+  color: var(--mainColor);
+}
+
+.landing-page__wrapper header .nav-btn {
+  padding: 5px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--textColor);
+  visibility: hidden;
+  display: none;
+  font-size: 1.8rem;
+}
+
+.landing-page__wrapper header .nav-btn.nav-close-btn {
+  color: var(--secondaryColor);
+}
+
+.landing-page__wrapper header div,
+.landing-page__wrapper nav {
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1024px) {
+  .landing-page__wrapper header .nav-btn {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .landing-page__wrapper .login-singup-wrapper {
+    display: none;
+  }
+
+  .landing-page__wrapper header nav a {
+    color: #2db67c;
+  }
+
+  .landing-page__wrapper header nav {
+    position: fixed;
+    top: -100vh;
+    position: absolute;
+    left: 0;
+    height: 65%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: #fff;
+    transition: 1s;
+  }
+
+  .landing-page__wrapper header .responsive_nav {
+    transform: translateY(100vh);
+  }
+
+  .landing-page__wrapper nav .nav-close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  .landing-page__wrapper nav a {
+    font-size: 1.5rem;
+  }
+}
