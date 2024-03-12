@@ -22,6 +22,7 @@ import Order from "./pages/Order/Order";
 import Home from "./pages/Home/Home";
 import { useState } from "react";
 import { checkForConnection } from "./utils/FormatUtils";
+import About from "./pages/About/About";
 
 const GET_USER_BY_TOKEN = gql`
   query GetUserByToken($token: String!) {
@@ -62,6 +63,7 @@ function MainWrapper({ token }) {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route exact path="/home" element={<Home />} />
+                <Route exact path="/about" element={<About />} />
                 <Route exact path="/services/:id" element={<Service />} />
                 <Route
                   exact
@@ -105,7 +107,7 @@ function App() {
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/services/:id" element={<Service />} />
-            {/* <Route exact path="/home" element={<Home />} /> */}
+            <Route exact path="/about" element={<About />} />
             <Route exact path="/user/:id" element={<Profile />} />
             <Route exact path="/search/:query" element={<Search />} />
             {/* <Route exact path="/categories/:category" element={<Category />} /> */}
