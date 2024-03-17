@@ -24,7 +24,6 @@ function UserOptions() {
   const isFreelancer = Cookies.get("isFreelancer") === "true";
 
   const userData = useContext(UserContext);
-  const { connectToWeb3 } = useContractHook();
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -43,7 +42,7 @@ function UserOptions() {
     };
   }, []);
   const handleConnectToWeb3 = () => {
-    connectToWeb3();
+    // connectToWeb3();
   };
   const handleOptionClick = () => {
     setShow(false);

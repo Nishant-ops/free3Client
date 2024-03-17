@@ -53,7 +53,7 @@ function MainWrapper({ token }) {
             userId: data.getUserByToken._id,
             username: data.getUserByToken.username,
             profilePicture: data.getUserByToken.profile_picture,
-
+            walletAddress: data.getUserByToken.wallet_address,
             isWeb3Connected: isWeb3Connected,
           }}
         >
