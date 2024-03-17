@@ -3,7 +3,140 @@ import UserContext from "../UserContext";
 import { RelayProvider } from "@opengsn/provider";
 import { ethers } from "ethers";
 
-function useContractHook() {
+function useContractHook(address) {
+  // console.log(address);
+  let work = {
+    abi: [
+      {
+        inputs: [
+          {
+            internalType: "address",
+            name: "_tokenAddress",
+            type: "address",
+          },
+          {
+            internalType: "address",
+            name: "_forwarder",
+            type: "address",
+          },
+        ],
+        stateMutability: "nonpayable",
+        type: "constructor",
+      },
+      {
+        anonymous: false,
+        inputs: [
+          {
+            indexed: false,
+            internalType: "address",
+            name: "payer",
+            type: "address",
+          },
+          {
+            indexed: false,
+            internalType: "uint256",
+            name: "amount",
+            type: "uint256",
+          },
+        ],
+        name: "TokenPayment",
+        type: "event",
+      },
+      {
+        inputs: [],
+        name: "getTrustedForwarder",
+        outputs: [
+          {
+            internalType: "address",
+            name: "forwarder",
+            type: "address",
+          },
+        ],
+        stateMutability: "view",
+        type: "function",
+      },
+      {
+        inputs: [
+          {
+            internalType: "address",
+            name: "forwarder",
+            type: "address",
+          },
+        ],
+        name: "isTrustedForwarder",
+        outputs: [
+          {
+            internalType: "bool",
+            name: "",
+            type: "bool",
+          },
+        ],
+        stateMutability: "view",
+        type: "function",
+      },
+      {
+        inputs: [],
+        name: "owner",
+        outputs: [
+          {
+            internalType: "address",
+            name: "",
+            type: "address",
+          },
+        ],
+        stateMutability: "view",
+        type: "function",
+      },
+      {
+        inputs: [
+          {
+            internalType: "uint256",
+            name: "_amount",
+            type: "uint256",
+          },
+        ],
+        name: "receiveToken",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+      },
+      {
+        inputs: [],
+        name: "tokenAddress",
+        outputs: [
+          {
+            internalType: "address",
+            name: "",
+            type: "address",
+          },
+        ],
+        stateMutability: "view",
+        type: "function",
+      },
+      {
+        inputs: [
+          {
+            internalType: "address",
+            name: "_recipient",
+            type: "address",
+          },
+          {
+            internalType: "uint256",
+            name: "_amount",
+            type: "uint256",
+          },
+        ],
+        name: "withdrawTokens",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+      },
+      {
+        stateMutability: "payable",
+        type: "receive",
+      },
+    ],
+  };
   const [provider, setProvider] = useState({});
   const [Contract, SetContract] = useState({});
 
@@ -14,9 +147,21 @@ function useContractHook() {
     connectProviderToContract();
   }, [provider]);
   const connectProviderToContract = () => {
-    if (Object.keys(provider).length == 0 || address.length <= 0) return;
-
-    let theContract = new ethers.Contract(address, abi, provider.getSigner());
+    console.log(address);
+    if (
+      Object.keys(provider).length == 0 ||
+      address == undefined ||
+      address.length <= 0
+    )
+      return;
+    console.log(provider);
+    // const abi = ["function transfer(address to, uint amount)"];
+    let theContract = new ethers.Contract(
+      address,
+      work.abi,
+      provider.getSigner()
+    );
+    // console.log(theContract);
     SetContract(theContract);
   };
   const checkForConnection = async () => {
@@ -54,7 +199,7 @@ function useContractHook() {
     let gsnProvider = await RelayProvider.newProvider({
       provider: window.ethereum,
       config: {
-        paymasterAddress: "0xa85233C63b9Ee964Add6F2cffe00Fd84eb32338f",
+        paymasterAddress: "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
       },
     }).init();
     const provider = new ethers.providers.Web3Provider(gsnProvider);
@@ -64,6 +209,7 @@ function useContractHook() {
     connectToWeb3,
     provider,
     checkForEtherium,
+    checkForConnection,
   };
 }
 

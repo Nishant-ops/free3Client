@@ -41,6 +41,8 @@ const CREATE_ORDER = gql`
     $deadline: String!
     $freelancerId: ID!
     $clientId: ID!
+    $freelancerWalletAddress: String!
+    $clientWalletAddress: String!
   ) {
     createOrder(
       order: {
@@ -49,6 +51,8 @@ const CREATE_ORDER = gql`
         deadline: $deadline
         freelancer: $freelancerId
         client: $clientId
+        freelancer_wallet: $freelancerWalletAddress
+        client_wallet: $clientWalletAddress
       }
     ) {
       _id

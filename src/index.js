@@ -10,11 +10,11 @@ import { split } from "@apollo/client";
 import { getMainDefinition } from "@apollo/client/utilities";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
-const wsLink = new GraphQLWsLink(
-  createClient({
-    url: "ws://localhost:8000/graphql",
-  })
-);
+// const wsLink = new GraphQLWsLink(
+//   createClient({
+//     url: "ws://localhost:8000/graphql",
+//   })
+// );
 
 const httpLink = createUploadLink({
   uri: "http://localhost:8000/graphql",
@@ -24,17 +24,10 @@ const httpLink = createUploadLink({
   },
 });
 
-const splitLink = split(
-  ({ query }) => {
-    const definition = getMainDefinition(query);
-    return (
-      definition.kind === "OperationDefinition" &&
-      definition.operation === "subscription"
-    );
-  },
-  wsLink,
-  httpLink
-);
+const splitLink = split(({ query }) => {
+  const definition = getMainDefinition(query);
+  return definition.kind === "OperationDefinition";
+}, httpLink);
 
 const client = new ApolloClient({
   link: splitLink,
